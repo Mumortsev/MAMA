@@ -1,0 +1,14 @@
+name: Build Android APK
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build APK
+        uses: jasonhongxyz/pwa-to-apk-action@v1.1.0
+        with:
+          url: "https://mama-ten-puse.vercel.app"
+          name: "LoveMama App"
+          
