@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #FDFCF8;
+  --color-sage: #9CAF88;
+  --color-sage-light: #C1D0B5;
+  --color-gold: #D4AF37;
+  --color-gold-dark: #AA8C2C;
+  --color-text-main: #1a1a1a;
+  --color-text-muted: #444444;
+}
+
+@layer base {
+  body {
+    color: var(--color-text-main);
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-playfair), serif;
+    font-weight: 600;
+  }
+
+  h1 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes scroll {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) translateY(8px);
+    opacity: 0.3;
+  }
+}
+
+@keyframes fingerSwipe {
+  0% {
+    transform: translate(-50%, 0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 32px);
+    opacity: 0;
+  }
+}
+
+@keyframes swipe {
+  0% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(-32px);
+    opacity: 0.2;
+  }
+}
+
+.animate-swipe {
+  animation: swipe 1.2s ease-in-out infinite;
+}
+
+@keyframes letterReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body.preloader-finished .animate-on-load {
+  animation: letterReveal 0.8s ease-out forwards;
+}
+
+body.preloader-finished .animate-on-load:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+body.preloader-finished .animate-on-load:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.animate-on-load {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.quote-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.quote-animate.quote-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes letterReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
